@@ -3,6 +3,9 @@
 #include <iostream>
 using namespace std;
 
+Teacher::Teacher()
+    : User(), teacherID(0), coTeacherID(0), classCount(0) {}
+
 Teacher::Teacher(int uid, int tid, int coid, string nm, string em, string pw)
     : User(uid, nm, em, pw), teacherID(tid), coTeacherID(coid), classCount(0) {}
 
@@ -50,14 +53,27 @@ void Teacher::acceptInvite(int fromTeacherID) {
 void Teacher::removeCoTeacher(int coID) {
     cout << name << " removed co-teacher with ID: " << coID << endl;
 }
-string generateClassCode() {
-    const char charset[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    string code = "";
-    int length = 6;
 
-    srand(time(0)); // seed once per program run
+   
+void Teacher::postAssignment() {
+        string title, description, dueDate;
+        cout << "Enter assignment title: ";
+        getline(cin, title);
+        cout << "Enter assignment description: ";
+        getline(cin, description);
+        cout << "Enter due date: ";
+        getline(cin, dueDate);
 
-    for (int i = 0; i < length; ++i) {
-        int index = rand() % (sizeof(charset) - 1);
-        code += charset[index];
+        assignmentFactory.createAssignment(title, description, dueDate);
+        // Now store or broadcast the assignment (e.g., save in a list, notify students, etc.)
+        cout << "Assignment created successfully.\n";
     }
+void Teacher::viewSubmission() {
+    submission.viewSubmission();
+}
+void Teacher::createAnnouncement() {
+    string msg;
+    cout << "Enter announcement text" << endl;
+    getline(cin, msg);
+    announcement.postAnnouncement(msg);
+}

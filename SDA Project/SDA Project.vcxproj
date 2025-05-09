@@ -130,11 +130,16 @@
     <ClCompile Include="Announcement.cpp" />
     <ClCompile Include="Announcement.h" />
     <ClCompile Include="Assignment.cpp" />
+    <ClCompile Include="AssignmentFactory.cpp" />
     <ClCompile Include="Classroom.cpp" />
+    <ClCompile Include="ClassroomDescription.cpp" />
     <ClCompile Include="Comment.cpp" />
+    <ClCompile Include="Grade.cpp" />
+    <ClCompile Include="GradingStrategy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Reminder.cpp" />
     <ClCompile Include="Student.cpp" />
+    <ClCompile Include="StudentController.cpp" />
     <ClCompile Include="Submission.cpp" />
     <ClCompile Include="SubmissionService.cpp" />
     <ClCompile Include="Teacher.cpp" />
