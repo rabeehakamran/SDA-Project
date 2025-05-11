@@ -9,9 +9,9 @@ void Student::setStudentID(int id) {
     studentID = id;
 }
 
-int Student::getStudentID() const {
-    return studentID;
-}
+//int Student::getStudentID() const {
+//    return studentID;
+//}
 
 // Join a new class
 void Student::addClass(string classCode) {

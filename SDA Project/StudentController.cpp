@@ -7,7 +7,7 @@ void StudentController::joinClass(Student& student, string classCode) {
 
 void StudentController::calculateGPA(float grades[], int size) {
     float sum = 0;
-    for (int i = 0; i < size; ++i) sum += grades[i];
+    for (int i = 0; i < size; i++) sum += grades[i];
     float gpa = (size > 0) ? sum / size : 0;
     cout << "Calculated GPA: " << gpa << endl;
 }

@@ -21,6 +21,10 @@ public:
     void addObserver(Observer* observer);
     void removeObserver(Observer* observer);
     void notifyObservers(string message);
+    int getClassID() const { return classID; }
+    string getClassCode() const { return classCode; }
+    string getTitle() const { return title; }
+
 };
 
 #endif

@@ -63,9 +63,6 @@
     <ClCompile Include="StudentController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StudentDataHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TeacherDataHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -74,6 +71,15 @@
     </ClCompile>
     <ClCompile Include="AnnouncementDataHandler.h">
       <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IUserDataHandler.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IClassDataHandler.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StudentDataHandler.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -131,7 +137,22 @@
     <ClInclude Include="ReminderDataHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SumissionDataHandler.h">
+    <ClInclude Include="SubmissionDataHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassDataHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IPostDataHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IReminderHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ISubmissionHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StudentDataHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

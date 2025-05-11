@@ -31,6 +31,10 @@ public:
     void postAssignment();
     void createAnnouncement();
     void viewSubmission();
+    int getTeacherID() const { return teacherID; }
+    string getName() const { return name; }
+    string getEmail() const { return email; }
+
 };
 
 #endif

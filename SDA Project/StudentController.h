@@ -4,9 +4,12 @@
 
 #include "Student.h"
 #include <iostream>
+#include"StudentDataHandler.h"
 using namespace std;
 
 class StudentController {
+private:
+    StudentDataHandler dataHandler;
 public:
     void joinClass(Student& student, string classCode);
     void calculateGPA(float grades[], int size);
@@ -16,6 +19,9 @@ public:
     void resubmitWork(string newFileURL);
     void viewGrade();
     void viewReport();
+    void addStudent(Student s) {
+        dataHandler.saveUserData(s);
+    }
 };
 
 #endif
