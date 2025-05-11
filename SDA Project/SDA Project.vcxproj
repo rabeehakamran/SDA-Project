@@ -129,34 +129,44 @@
   <ItemGroup>
     <ClCompile Include="Announcement.cpp" />
     <ClCompile Include="Announcement.h" />
+    <ClCompile Include="AnnouncementDataHandler.h" />
     <ClCompile Include="Assignment.cpp" />
-    <ClCompile Include="AssignmentFactory.cpp" />
+    <ClCompile Include="AssignmentDataHandler.h" />
     <ClCompile Include="Classroom.cpp" />
     <ClCompile Include="ClassroomDescription.cpp" />
     <ClCompile Include="Comment.cpp" />
     <ClCompile Include="Grade.cpp" />
-    <ClCompile Include="GradingStrategy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Reminder.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="StudentController.cpp" />
+    <ClCompile Include="StudentDataHandler.cpp" />
     <ClCompile Include="Submission.cpp" />
     <ClCompile Include="SubmissionService.cpp" />
     <ClCompile Include="Teacher.cpp" />
+    <ClCompile Include="TeacherDataHandler.cpp" />
+    <ClCompile Include="Ui.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Assignment.h" />
     <ClInclude Include="AssignmentDetails.h" />
+    <ClInclude Include="AssignmentFactory.h" />
     <ClInclude Include="Classroom.h" />
     <ClInclude Include="Comment.h" />
+    <ClInclude Include="CommentDataHandler.h" />
+    <ClInclude Include="GradingStrategy.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="progressReport.h" />
     <ClInclude Include="Reminder.h" />
+    <ClInclude Include="ReminderDataHandler.h" />
     <ClInclude Include="Student.h" />
+    <ClInclude Include="StudentController.h" />
     <ClInclude Include="Submission.h" />
     <ClInclude Include="SubmissionService.h" />
+    <ClInclude Include="SumissionDataHandler.h" />
     <ClInclude Include="Teacher.h" />
+    <ClInclude Include="Ui.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

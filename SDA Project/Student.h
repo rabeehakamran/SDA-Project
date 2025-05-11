@@ -7,16 +7,19 @@
 class Student : public User {
 private:
     int studentID;
-    string joinedClasses[10];  // max 10 class codes
+    string joinedClasses[10];
     int classCount;
 
 public:
     Student(int uid, int sid, string nm, string em, string pw);
-    void joinClass(string classCode);
-    void selectClass(int classID);
-    void update(string notification);
-    void calculateGPA(float grades[], int size);
-    void generateReport(string progressID);
+
+    // Getters and Setters
+    int getStudentID() const;
+    void setStudentID(int id);
+
+    void addClass(string classCode);
+    string getClassCode(int index) const;
+    int getClassCount() const;
 };
 
 #endif

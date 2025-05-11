@@ -9,6 +9,9 @@ Teacher::Teacher()
 Teacher::Teacher(int uid, int tid, int coid, string nm, string em, string pw)
     : User(uid, nm, em, pw), teacherID(tid), coTeacherID(coid), classCount(0) {}
 
+int Teacher::getTeacherID() {
+    return this->teacherID;
+}
 void Teacher::createClass(int classID, string classCode, string title) {
     if (classCount < 10) {
         createdClasses[classCount++] = classCode;

@@ -5,7 +5,7 @@
 #include "User.h"
 #include "Submission.h"
 #include "Announcement.h"
-#include "AssignmentFactory.cpp"
+#include "AssignmentFactory.h"
 
 class Teacher : public User {
 private:
@@ -20,7 +20,7 @@ private:
 public:
     Teacher();
     Teacher(int uid, int tid, int coid, string nm, string em, string pw);
-
+    int getTeacherID();
     void createClass(int classID, string classCode, string title);
     void deleteClass(int classID);
     void removeStudent(int studentID);

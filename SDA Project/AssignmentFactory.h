@@ -1,3 +1,4 @@
+#pragma once
 //AssignmentFactory.h
 #include "AssignmentDetails.h"
 #include<iostream>
