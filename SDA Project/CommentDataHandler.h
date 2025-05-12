@@ -1,18 +1,18 @@
-#pragma once
 #ifndef COMMENTDATAHANDLER_H
 #define COMMENTDATAHANDLER_H
 
 #include <iostream>
 #include <fstream>
-#include<string>
+#include <string>
+#include "IPostDataHandler.h"
 using namespace std;
 
-class CommentDataHandler {
+class CommentDataHandler : public IPostDataHandler {
 public:
-    static void saveComment(string user, string commentText) {
+    void saveComment(int commentID, const string& commentText) override {
         ofstream file("comments.txt", ios::app);
         if (file.is_open()) {
-            file << user << ": " << commentText << "\n";
+            file << commentID << ": " << commentText << "\n";
             file.close();
         }
         else {
@@ -20,7 +20,7 @@ public:
         }
     }
 
-    static void viewAllComments() {
+    void loadAllComments() override {
         ifstream file("comments.txt");
         string line;
         if (file.is_open()) {
@@ -34,6 +34,14 @@ public:
             cout << "No comments found.\n";
         }
     }
+
+    // Not relevant for this handler — leave empty
+    void saveAssignment(int, const string&, const string&) override {}
+    void saveAnnouncement(int, const string&) override {}
+    void loadAllAssignments() override {}
+    void loadAllAnnouncements() override {}
+
+    ~CommentDataHandler() override = default;
 };
 
 #endif

@@ -8,7 +8,7 @@
 class ISubmissionHandler {
 public:
     virtual void saveSubmission(const std::string& studentName, const std::string& assignmentTitle,
-        const std::string& fileURL, const std::string& timestamp) = 0;
+        const std::string& fileURL) = 0;
     virtual void viewAllSubmissions() = 0;
     virtual ~ISubmissionHandler() {}
 };

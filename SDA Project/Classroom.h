@@ -16,6 +16,7 @@ private:
 
 public:
     Classroom();
+
     Classroom(int id, string code, string t);
 
     void addObserver(Observer* observer);

@@ -11,14 +11,14 @@ using namespace std;
 
 class TeacherDataHandler : public IUserDataHandler {
 public:
-    void saveUserData(const User& user) override {
-        const Teacher& teacher = static_cast<const Teacher&>(user);
+    void saveUserData(User* user) override {
+        Teacher* teacher = dynamic_cast<Teacher*>(user);
 
         ofstream teacherFile("teachers.txt", ios::app);
         if (teacherFile.is_open()) {
-            teacherFile << teacher.getTeacherID() << ","
-                << teacher.getName() << ","
-                << teacher.getEmail() << "\n";
+            teacherFile << teacher->getTeacherID() << ","
+                << teacher->getName() << ","
+                << teacher->getEmail() << "\n";
             teacherFile.close();
             cout << "Teacher data saved successfully.\n";
         }

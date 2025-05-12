@@ -1,5 +1,7 @@
 #include "StudentController.h"
 #include<iostream>
+
+
 void StudentController::joinClass(Student& student, string classCode) {
     student.addClass(classCode);
     cout << "Class joined successfully: " << classCode << endl;
@@ -19,16 +21,30 @@ void StudentController::generateReport(const Student& student) {
 
 void StudentController::submitWork(string fileURL) {
     cout << "Submitting assignment file: " << fileURL << endl;
+    submission.uploadSubmission(fileURL);
 }
 
 void StudentController::resubmitWork(string newFileURL) {
     cout << "Resubmitting with new file: " << newFileURL << endl;
 }
 
-void StudentController::viewGrade() {
-    cout << "Viewing current assignment grade...\n";
+void StudentController::viewAnnouncement() {
+    announcementHandler->loadAllAnnouncements();
 }
 
-void StudentController::viewReport() {
-    cout << "Viewing progress report...\n";
+void StudentController::viewAssignment() {
+    assignmentHandler->loadAllAssignments();
+}
+void StudentController::saveStudent(Student& s) {
+    dataHandler->saveUserData(&s);
+}
+void StudentController::loadStudent() {
+    dataHandler->loadUserData();
+}
+void StudentController::addComment() {
+    int cId = rand() % 1000;
+    string text;
+    cout << "Enter the text for comment" << endl;
+    getline(cin, text);
+    commentHandler->saveComment(cId, text);
 }

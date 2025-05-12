@@ -15,6 +15,8 @@ int Teacher::getTeacherID() {
 void Teacher::createClass(int classID, string classCode, string title) {
     if (classCount < 10) {
         createdClasses[classCount++] = classCode;
+        Classroom c(classID, classCode, title);
+        classDataHandler->saveClassroomData(c);
         cout << "Class created: " << title << " [Code: " << classCode << ", ID: " << classID << "] by " << name << endl;
     }
     else {
@@ -68,15 +70,29 @@ void Teacher::postAssignment() {
         getline(cin, dueDate);
 
         assignmentFactory.createAssignment(title, description, dueDate);
-        // Now store or broadcast the assignment (e.g., save in a list, notify students, etc.)
+        assignmentHandler->saveAssignment(1, title, description);
         cout << "Assignment created successfully.\n";
     }
 void Teacher::viewSubmission() {
-    submission.viewSubmission();
+    ss.viewSubmission();
 }
 void Teacher::createAnnouncement() {
     string msg;
     cout << "Enter announcement text" << endl;
     getline(cin, msg);
     announcement.postAnnouncement(msg);
+    announcementHandler->saveAnnouncement(1, msg);
+}
+void Teacher::saveTeacherData(Teacher& t) {
+    dataHandler->saveUserData(&t);
+}
+void Teacher::loadTeacher() {
+    dataHandler->loadUserData();
+}
+void Teacher::addComment() {
+    int count = rand() % 1000;
+    string comment;
+    cout << "Enter the text for comment" << endl;
+    getline(cin, comment);
+    commentHandler->saveComment(count, comment);
 }

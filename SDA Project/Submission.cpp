@@ -59,14 +59,3 @@ float Submission::getAssignmentGrade() {
     return assignmentGrade;
 }
 
-void Submission::viewSubmission() {
-    cout << "Submission ID: " << submissionID << endl;
-    cout << "Submission Date: " << submissionDate << endl;
-    cout << "Files: " << files << endl;
-    cout << "Status: " << status << endl;
-    cout << "Assignment Grade: ";
-    if (assignmentGrade >= 0)
-        cout << assignmentGrade << endl;
-    else
-        cout << "Not Graded Yet" << endl;
-}

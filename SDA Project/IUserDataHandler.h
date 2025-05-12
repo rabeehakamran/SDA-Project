@@ -6,7 +6,7 @@
 
 class IUserDataHandler {
 public:
-    virtual void saveUserData(const User& user) = 0;
+    virtual void saveUserData(User* user) = 0;
     virtual void loadUserData() = 0;
     virtual void getUserById(int id) = 0;
     virtual ~IUserDataHandler() {}

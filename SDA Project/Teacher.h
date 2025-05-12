@@ -6,7 +6,15 @@
 #include "Submission.h"
 #include "Announcement.h"
 #include "AssignmentFactory.h"
-
+#include "Assignment.h"
+#include"IUserDataHandler.h"
+#include"IClassDataHandler.h"
+#include"IPostDataHandler.h"
+#include"Classroom.h"
+#include "AnnouncementDataHandler.h"
+#include "AssignmentDataHandler.h"
+#include "CommentDataHandler.h"
+#include"SubmissionService.h"
 class Teacher : public User {
 private:
     int teacherID;
@@ -15,9 +23,17 @@ private:
     int classCount;
     AssignmentFactory assignmentFactory;
     Submission submission;
+    SubmissionService ss;
     Announcement announcement;
-
+    IUserDataHandler* dataHandler;
+    IClassDataHandler* classDataHandler;
+    AnnouncementDataHandler* announcementHandler;
+    AssignmentDataHandler* assignmentHandler;
+    CommentDataHandler* commentHandler;
+    IPostDataHandler* postDataHandler;
 public:
+    Teacher(IUserDataHandler* uHandler, IClassDataHandler* cHandler, AnnouncementDataHandler* anHandler, AssignmentDataHandler* asHandler, CommentDataHandler* cmHandler)
+        : dataHandler(uHandler), classDataHandler(cHandler), announcementHandler(anHandler),assignmentHandler(asHandler), commentHandler(cmHandler) {}
     Teacher();
     Teacher(int uid, int tid, int coid, string nm, string em, string pw);
     int getTeacherID();
@@ -34,7 +50,9 @@ public:
     int getTeacherID() const { return teacherID; }
     string getName() const { return name; }
     string getEmail() const { return email; }
-
+    void saveTeacherData(Teacher& t);
+    void loadTeacher();
+    void addComment();
 };
 
 #endif

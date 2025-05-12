@@ -6,7 +6,7 @@
 
 class StudentDataHandler : public IUserDataHandler {
 public:
-    void saveUserData(const User& user) override;
+    void saveUserData(User* user) override;
     void loadUserData() override;
     void getUserById(int id) override;
 };

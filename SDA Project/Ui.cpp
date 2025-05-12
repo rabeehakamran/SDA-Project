@@ -24,9 +24,8 @@ void UI::showStudentMenu(StudentController& studentCtrl) {
     do {
         cout << "\n--- Student Menu ---" << endl;
         cout << "1. Submit Work" << endl;
-        cout << "2. Resubmit Work" << endl;
-        cout << "3. View Grade" << endl;
-        cout << "4. View Report" << endl;
+        cout << "2. View Announcement" << endl;
+        cout << "3. Add Comment" << endl;
         cout << "0. Logout / Exit" << endl;
         cout << "Enter your choice: ";
         cin >> option;
@@ -40,15 +39,10 @@ void UI::showStudentMenu(StudentController& studentCtrl) {
             studentCtrl.submitWork(file);
             break;
         case 2:
-            cout << "Enter new file URL to resubmit: ";
-            getline(cin, file);
-            studentCtrl.resubmitWork(file);
+            studentCtrl.viewAnnouncement();
             break;
         case 3:
-            studentCtrl.viewGrade();
-            break;
-        case 4:
-            studentCtrl.viewReport();
+            studentCtrl.addComment();
             break;
         case 0:
             cout << "Logging out...\n";

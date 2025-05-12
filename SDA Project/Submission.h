@@ -28,7 +28,5 @@ public:
     string getFiles();
     string getStatus();
     float getAssignmentGrade();
-
-    void viewSubmission();
 };
 #endif

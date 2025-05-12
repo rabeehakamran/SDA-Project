@@ -10,10 +10,10 @@
 class SubmissionDataHandler : public ISubmissionHandler {
 public:
     void saveSubmission(const std::string& studentName, const std::string& assignmentTitle,
-        const std::string& fileURL, const std::string& timestamp) override {
+        const std::string& fileURL) override {
         std::ofstream file("submissions.txt", std::ios::app);
         if (file.is_open()) {
-            file << studentName << "," << assignmentTitle << "," << fileURL << "," << timestamp << "\n";
+            file << studentName << "," << assignmentTitle << "," << fileURL << "\n";
             file.close();
         }
         else {

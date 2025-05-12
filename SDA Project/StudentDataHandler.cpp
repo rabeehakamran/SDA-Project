@@ -4,14 +4,14 @@
 #include <iostream>
 using namespace std;
 
-void StudentDataHandler::saveUserData(const User& user) {
-    const Student& student = static_cast<const Student&>(user);
+void StudentDataHandler::saveUserData(User* user) {
+    Student* student = dynamic_cast<Student*>(user);
 
     ofstream studentFile("students.txt", ios::app);
     if (studentFile.is_open()) {
-        studentFile << student.getStudentID() << ","
-            << student.getName() << ","
-            << student.getEmail() << "\n";
+        studentFile << student->getStudentID() << ","
+            << student->getName() << ","
+            << student->getEmail() << "\n";
         studentFile.close();
         cout << "Student data saved successfully.\n";
     }

@@ -1,7 +1,14 @@
 #include <iostream>
 #include "StudentController.h"
 #include "Teacher.h"
-#include "Ui.h" // Add this!
+#include "StudentDataHandler.h"
+#include "TeacherDataHandler.cpp"
+#include "ClassDataHandler.h"
+#include"AssignmentDataHandler.h"
+#include"CommentDataHandler.h"
+#include"AnnouncementDataHandler.h"
+#include"SubmissionDataHandler.h"
+#include "Ui.h" // add this!
 
 using namespace std;
 
@@ -13,11 +20,21 @@ int main() {
     cin >> role;
 
     if (role == 1) {
-        StudentController student;
+        StudentDataHandler handler;
+        SubmissionDataHandler submissionHandler;
+        AnnouncementDataHandler anHandler;
+        AssignmentDataHandler asHandler;
+        CommentDataHandler cmHandler;
+        StudentController student(&handler, &anHandler, &asHandler, &cmHandler);
         ui.showStudentMenu(student);
     }
     else if (role == 2) {
-        Teacher teacher;
+        TeacherDataHandler handler;
+        ClassroomDataHandler cHandler;
+        AnnouncementDataHandler anHandler;
+        AssignmentDataHandler asHandler;
+        CommentDataHandler cmHandler;
+        Teacher teacher(&handler, &cHandler, &anHandler, &asHandler, &cmHandler);
         ui.showTeacherMenu(teacher);
     }
     else {

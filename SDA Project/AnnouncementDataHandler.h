@@ -3,15 +3,16 @@
 
 #include <iostream>
 #include <fstream>
-#include<string>
+#include <string>
+#include "IPostDataHandler.h"
 using namespace std;
 
-class AnnouncementDataHandler {
+class AnnouncementDataHandler : public IPostDataHandler {
 public:
-    static void saveAnnouncement(string message, string date) {
+    void saveAnnouncement(int announcementID, const string& message) override {
         ofstream file("announcements.txt", ios::app);
         if (file.is_open()) {
-            file << message << "," << date << "\n";
+            file << announcementID << "," << message << "\n";
             file.close();
         }
         else {
@@ -19,7 +20,7 @@ public:
         }
     }
 
-    static void viewAllAnnouncements() {
+    void loadAllAnnouncements() override {
         ifstream file("announcements.txt");
         string line;
         if (file.is_open()) {
@@ -33,7 +34,14 @@ public:
             cout << "No announcements found.\n";
         }
     }
+
+    // Not relevant for this handler — leave empty
+    void saveAssignment(int, const string&, const string&) override {}
+    void saveComment(int, const string&) override {}
+    void loadAllAssignments() override {}
+    void loadAllComments() override {}
+
+    ~AnnouncementDataHandler() override = default;
 };
 
 #endif
-
