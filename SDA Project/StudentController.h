@@ -20,14 +20,13 @@ private:
     AnnouncementDataHandler* announcementHandler;
     AssignmentDataHandler* assignmentHandler;
     CommentDataHandler* commentHandler;
-
 public:
     StudentController() {
 
     }
     StudentController(IUserDataHandler* handler, AnnouncementDataHandler* anHandler,
     AssignmentDataHandler* asHandler,
-    CommentDataHandler* cmHandler) : dataHandler(handler), announcementHandler(anHandler), assignmentHandler(asHandler), commentHandler(cmHandler){};
+    CommentDataHandler* cmHandler, ISubmissionHandler* subHandler) : dataHandler(handler), announcementHandler(anHandler), assignmentHandler(asHandler), commentHandler(cmHandler), submission(subHandler){};
     void joinClass(Student& student, string classCode);
     void calculateGPA(float grades[], int size);
     void generateReport(const Student& student);

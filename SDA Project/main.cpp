@@ -7,8 +7,9 @@
 #include"AssignmentDataHandler.h"
 #include"CommentDataHandler.h"
 #include"AnnouncementDataHandler.h"
+#include"SubmissionService.h"
+#include "Ui.h"
 #include"SubmissionDataHandler.h"
-#include "Ui.h" // add this!
 
 using namespace std;
 
@@ -16,16 +17,24 @@ int main() {
     int role;
     UI ui;
 
-    cout << "Are you a Student or a Teacher? (1 = Student, 2 = Teacher): ";
+    cout << "\n=====================================\n";
+    cout << "         Welcome to GCR         \n";
+    cout << "=====================================\n";
+    cout << "Select your role:\n";
+    cout << "1. Student\n";
+    cout << "2. Teacher\n";
+    cout << "-------------------------------------\n";
+    cout << "Enter choice (1 or 2): ";
     cin >> role;
 
     if (role == 1) {
         StudentDataHandler handler;
-        SubmissionDataHandler submissionHandler;
         AnnouncementDataHandler anHandler;
         AssignmentDataHandler asHandler;
         CommentDataHandler cmHandler;
-        StudentController student(&handler, &anHandler, &asHandler, &cmHandler);
+        SubmissionService subHandler;
+        SubmissionDataHandler submissionHandler;
+        StudentController student(&handler, &anHandler, &asHandler, &cmHandler, &submissionHandler);
         ui.showStudentMenu(student);
     }
     else if (role == 2) {
@@ -34,7 +43,8 @@ int main() {
         AnnouncementDataHandler anHandler;
         AssignmentDataHandler asHandler;
         CommentDataHandler cmHandler;
-        Teacher teacher(&handler, &cHandler, &anHandler, &asHandler, &cmHandler);
+        SubmissionDataHandler submissionHandler;
+        Teacher teacher(&handler, &cHandler, &anHandler, &asHandler, &cmHandler,&submissionHandler);
         ui.showTeacherMenu(teacher);
     }
     else {

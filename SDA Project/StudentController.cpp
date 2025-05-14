@@ -44,6 +44,7 @@ void StudentController::loadStudent() {
 void StudentController::addComment() {
     int cId = rand() % 1000;
     string text;
+    commentHandler->loadAllComments();
     cout << "Enter the text for comment" << endl;
     getline(cin, text);
     commentHandler->saveComment(cId, text);

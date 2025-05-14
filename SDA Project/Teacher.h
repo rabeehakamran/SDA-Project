@@ -32,8 +32,8 @@ private:
     CommentDataHandler* commentHandler;
     IPostDataHandler* postDataHandler;
 public:
-    Teacher(IUserDataHandler* uHandler, IClassDataHandler* cHandler, AnnouncementDataHandler* anHandler, AssignmentDataHandler* asHandler, CommentDataHandler* cmHandler)
-        : dataHandler(uHandler), classDataHandler(cHandler), announcementHandler(anHandler),assignmentHandler(asHandler), commentHandler(cmHandler) {}
+    Teacher(IUserDataHandler* uHandler, IClassDataHandler* cHandler, AnnouncementDataHandler* anHandler, AssignmentDataHandler* asHandler, CommentDataHandler* cmHandler, ISubmissionHandler* subHandler)
+        : dataHandler(uHandler), classDataHandler(cHandler), announcementHandler(anHandler),assignmentHandler(asHandler), commentHandler(cmHandler) , ss(subHandler) {}
     Teacher();
     Teacher(int uid, int tid, int coid, string nm, string em, string pw);
     int getTeacherID();

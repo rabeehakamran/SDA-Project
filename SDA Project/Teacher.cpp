@@ -92,6 +92,7 @@ void Teacher::loadTeacher() {
 void Teacher::addComment() {
     int count = rand() % 1000;
     string comment;
+    commentHandler->loadAllComments();
     cout << "Enter the text for comment" << endl;
     getline(cin, comment);
     commentHandler->saveComment(count, comment);
